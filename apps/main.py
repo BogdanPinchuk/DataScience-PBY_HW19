@@ -199,5 +199,8 @@ def calc_cluster_metrics(data_set: DataFrame, labels_pred, labels_true=None) -> 
     df = rp.get_pd_report()
 
     # Print results
-    rp.print_pd_report(f"Внутрішні й зовнішні метрики")
+    if labels_true is None:
+        rp.print_pd_report(f"Внутрішні метрики")
+    else:
+        rp.print_pd_report(f"Внутрішні й зовнішні метрики")
     return df
